@@ -19,7 +19,7 @@ type InnerComponentProps = {
 type VoiceSearchProps = {
   searchAsYouSpeak?: boolean;
   language?: string;
-  additionalQueryParameters?: ({ query: string }) => {} | void;
+  additionalQueryParameters?: (params: { query: string }) => {} | void;
 
   refine: (query: string) => void;
   translate: Translate;
@@ -144,6 +144,8 @@ class VoiceSearch extends Component<VoiceSearchProps, VoiceListeningState> {
     toggleListening();
   };
 }
+
+<VoiceSearch additionalQueryParameters={({nose: bone}) => {}} />
 
 export default translatable({
   buttonTitle: 'Search by voice',
