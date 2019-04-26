@@ -7,6 +7,7 @@ const STATUS_ERROR = 'error';
 
 export type VoiceSearchHelperParams = {
   searchAsYouSpeak: boolean;
+  language?: string;
   onQueryChange: (query: string) => void;
   onStateChange: () => void;
 };
@@ -29,6 +30,7 @@ export type VoiceSearchHelper = {
 
 export default function voiceSearchHelper({
   searchAsYouSpeak,
+  language,
   onQueryChange,
   onStateChange,
 }: VoiceSearchHelperParams): VoiceSearchHelper {
@@ -77,6 +79,9 @@ export default function voiceSearchHelper({
     }
     resetState(STATUS_ASKING_PERMISSION);
     recognition.interimResults = true;
+    if (language) {
+      recognition.lang = language;
+    }
     recognition.onstart = () => {
       setState({
         status: STATUS_WAITING,
