@@ -145,8 +145,6 @@ class VoiceSearch extends Component<VoiceSearchProps, VoiceListeningState> {
   };
 }
 
-<VoiceSearch additionalQueryParameters={({nose: bone}) => {}} />
-
 export default translatable({
   buttonTitle: 'Search by voice',
   disabledButtonTitle: 'Search by voice (not supported on this browser)',
